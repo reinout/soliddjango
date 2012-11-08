@@ -48,4 +48,12 @@ Part 3: Django's extras
    part3/buildout
    part3/full_text_search
    part3/nosql
-   part3/python
+
+
+Appendices
+==========
+
+.. toctree::
+   :maxdepth: 1
+
+   appendices/python
