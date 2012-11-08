@@ -1,4 +1,4 @@
-Introducing Python for Django programmers
-#########################################
+Introducing Python for Django programmers TODO
+##############################################
 
 TODO
