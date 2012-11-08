@@ -1,18 +1,17 @@
-Solid Django
-############
+Full table of contents
+######################
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
 
    preface
-   toc
 
 
 Part 1: Django's foundation
 ===========================
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
 
    part1/first_taste
    part1/models_and_admin
@@ -24,7 +23,7 @@ Part 2: Django's common building blocks
 =======================================
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
 
    part2/packaging
    part2/advanced_views_and_templates
@@ -39,7 +38,7 @@ Part 3: Django's extras
 =======================
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
 
    part3/management_commands
    part3/context_processors
