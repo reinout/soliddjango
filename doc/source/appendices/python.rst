@@ -34,8 +34,9 @@ your variables in Python. Assigning a variable is done with a single
     Hello, variable
 
 
-After reviewing this appendix, if you still want a more in-depth
-introduction to Python, look at `Dive into Python <http://www.diveintopython.net/>`_ or .
+After reviewing this appendix, if you still want a more in-depth introduction
+to Python, look at `dive into Python <http://www.diveintopython.net/>`_ or
+`learn Python the hard way <http://learnpythonthehardway.org/>`_.
 
 Data In Python
 ==============
@@ -112,12 +113,12 @@ local encodings.
 When you enter international characters in Python, you prefix the
 opening quote with a ``u`` character to indicate a unicode string::
 
-        >>> 'string'
-        'string'
-        >>> u'unicode string'
-        u'unicode string'
-        >>> print u'latin small letter e with diaeresis is \u00eb'
-        latin small letter e with diaeresis is ë
+    >>> 'string'
+    'string'
+    >>> u'unicode string'
+    u'unicode string'
+    >>> print u'latin small letter e with diaeresis is \u00eb'
+    latin small letter e with diaeresis is ë
 
 The last example shows one way to enter non-ASCII characters in Python
 code---a ``\u`` followed by the unicode code for the character (which you can
@@ -127,6 +128,8 @@ this example is the code for an *ë*.
 When you're writing Python files, it is easier to tell Python which
 character set to use, and let Python handle the conversion to unicode.
 You do this with a comment on the first line of the file:
+
+.. literalinclude:: /code/python/with_charset.py
 
 Many code editors also recognize the dash-star-dash pattern on the first
 line. This allows you to use non-ASCII characters in your editor instead
@@ -142,14 +145,14 @@ configuration, see . You use backslashes a lot in regular expression
 syntax. Python also uses backslashes to give some characters in a string a
 special meaning::
 
-        >>> print "A string with two newlines.\n\nAnd a second line."
-        A string with two newlines.
+    >>> print "A string with two newlines.\n\nAnd a second line."
+    A string with two newlines.
 
-        And a second line.
-        >>> print "And \ttabs \twork \t\talso."
-        And   tabs    work        also.
-        >>> print "And also \b , though you won't see output."
-        And also , though you won't see output.
+    And a second line.
+    >>> print "And \ttabs \twork \t\talso."
+    And   tabs    work        also.
+    >>> print "And also \b , though you won't see output."
+    And also , though you won't see output.
 
 
 You see here that Python treats ``\n`` and ``\t`` as newline and tab
@@ -159,10 +162,10 @@ Here you have a problem. A ``\b`` means LQUOTwhitespace at the start or
 end of a wordRQUOT in a regular expression. To preserve the backslash in
 the string, you need to escape it with another backslash::
 
-        >>> print "This \b is not preserved"
-        This  is not preserved
-        >>> print "This \\b is properly preserved"
-        This \b is properly preserved
+    >>> print "This \b is not preserved"
+    This  is not preserved
+    >>> print "This \\b is properly preserved"
+    This \b is properly preserved
 
 
 To retain a backslash in a Python string, you need to put in two
@@ -174,13 +177,14 @@ Python gives you a special kind of string that preserves all
 backslashes: a raw string. Just put an ``r`` in front of the string's
 quotes::
 
-        >>> print "The basic solution is a double backslash: \\b"
-        The basic solution is a double backslash: \b
-        >>> print r"Alternative: a raw string. \b stays \b"
-        Alternative: a raw string. \b stays \b
+    >>> print "The basic solution is a double backslash: \\b"
+    The basic solution is a double backslash: \b
+    >>> print r"Alternative: a raw string. \b stays \b"
+    Alternative: a raw string. \b stays \b
 
 Remember, you only need a raw string's special treatment of backslash
 characters for regular expressions.
+
 
 Collections: Lists, Tuples And Dictionaries
 -------------------------------------------
@@ -272,6 +276,7 @@ empty *then* print a warning. Python treats the following as False:
 ``None``, an empty string, zero, an empty list, empty tuple, or an empty
 dictionary.
 
+
 Flow Control
 ============
 
@@ -286,7 +291,9 @@ Indentation
 The indentation in Python confuses many programmers when they are first
 learning the language. Most programming languages use something like
 curly braces to group statements, such as for an if/else. Here is a
-JavaScript example::
+JavaScript example:
+
+.. code-block:: javascript
 
       if (kind === "2") {
           map_type = G_PHYSICAL_MAP;
@@ -320,6 +327,8 @@ Python handles conditions with ``if``. If you have more than one
 condition, you can add one or more ``elif`` statements. And ``else``
 gives you a catch-all at the end. Here is an example:
 
+.. literalinclude:: /code/python/if_statements.py
+
 ``==`` and ``!=`` test for equality and inequality. Everything that
 results in a boolean value can be used as a condition. See also . You
 can combine conditions with ``and`` and ``or`` and negate with ``not``.
@@ -329,6 +338,8 @@ Loops
 
 Python has ``for`` and ``while`` loops. You'll almost exclusively see
 ``for`` loops:
+
+.. literalinclude:: /code/python/for_loops.py
 
 Two useful tricks are ``range`` and ``enumerate``. The first is for
 iterating a fixed number of times. ``range(10)`` produces
@@ -355,6 +366,8 @@ comprehensions. With a list comprehension you can filter and/or modify a
 list in one line of code instead of using a loop to do the same work.
 The best way to show you is with an example:
 
+.. literalinclude:: /code/python/comprehensions.py
+
 The example takes a string with a couple of empty lines and filters out the
 empty lines. First, it uses a *for* loop by checking if a line is not empty
 and, if not, by appending it to the result. After that it does the same with a
@@ -378,6 +391,8 @@ Functions And Arguments
 -----------------------
 
 Python functions are defined with ``def`` like this:
+
+.. literalinclude:: /code/python/functions.py
 
 The last two functions contain arguments. Python has two kinds of
 arguments: positional arguments and keyword arguments. A positional
@@ -412,6 +427,8 @@ Classes
 
 Python supports object oriented programming. You can define classes.
 Here is an example of defining, instantiating, and using a class:
+
+.. literalinclude:: /code/python/classes.py
 
 The example shows two ways to create a class. Both use the ``class``
 statement. The first way subclasses from Python's base ``object`` class.
@@ -466,7 +483,7 @@ to refer to them in some way so that you can use them. In Python this is
 called *importing*. You import modules and packages with the ``import xyz`` or
 ``from abc import xyz`` statement:
 
-CODE HERE file="code/python/imports.py"
+.. literalinclude:: /code/python/imports.py
 
 With the ``import xyz`` style you import a whole package or module with
 its full path. For instance, importing ``os`` makes everything inside
