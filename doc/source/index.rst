@@ -1,8 +1,6 @@
 Solid django
 ############
 
-Trying it with Sphinx!
-
 .. toctree::
    :maxdepth: 2
 
