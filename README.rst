@@ -68,7 +68,7 @@ on how to use git to manage the example code and got some good tips. So here's
 the setup:
 
 - The example project's code is in a separate repository, like a regular
- project.
+  project.
 
 - The book repository has a bunch of directories per chapter with versions of
   the example project in various stages of progression. These are extracted
