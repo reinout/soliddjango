@@ -8,9 +8,9 @@ Trying it with Sphinx!
 
    preface
    part1/first_taste
-   part1/urls
-   part1/views
    part1/models_and_admin
+   part1/views
+   part1/urls
    part2/packaging
    part2/advanced_views_and_templates
    part2/javascript_and_css
