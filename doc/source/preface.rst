@@ -1,10 +1,10 @@
 Preface
 #######
 
-Hi, I'm Reinout van Rees. You're now reading my book on Django, so I'll give
-you some background information on myself and the book, first. You're free to
-read the actual Django meat of the book, but this introduction might be fun,
-too.
+Hi, I'm `Reinout van Rees <http://reinout.vanrees.org>`_. You're now reading
+my book on Django, so I'll give you some background information on myself and
+the book, first. You're free to read the actual Django meat of the book, but
+this introduction might be fun, too.
 
 I'll tell you a bit about *my background*, about the *the background of this
 book* and about the *book's structure*. I'll tell you how you can *pay
@@ -15,16 +15,18 @@ feedback*.
 Reinout's background
 ====================
 
-By education, I'm a civil engineer. A military engineer builds missiles, a
-civil engineer builds targets. So if an architect designs something, we get to
-make sure it doesn't collapse. And if there's a big storm surge barrier or
-something like that: civil engineers.
+By education, I'm a `civil engineer
+<http://en.wikipedia.org/wiki/Civil_engineering>`_. A military engineer builds
+missiles, a civil engineer builds targets. So if an architect designs
+something, we get to make sure it doesn't collapse. And if there's a big storm
+surge barrier or something like that: civil engineers.
 
 By hobby and self-education, I'm a programmer. Pascal in the 1990s, Python
-since 2000. Mostly Zope and Plone in the beginning; Django since about three
-years. So I've got a quite diverse background, especially since I've delved
-into the deep, deep mines/pits of Zope/Plone complexity. Lovely stuff. Learned
-a lot. Now I'm working full-time with Django. Lovely stuff!
+since 2000. Mostly `Zope <http://zope.org>`_ and `Plone <http://plone.org>`_
+in the beginning; Django since about three years. So I've got a quite diverse
+background, especially since I've delved into the deep, deep pits of
+Zope/Plone complexity. Lovely stuff. Learned a lot. Now I'm working full-time
+with Django. Lovely stuff!
 
 By profession, I'm both a civil engineer and a programmer at the moment. I
 work at `Nelen & Schuurmans <http://www.nelen-schuurmans.nl>`_ in the
@@ -141,9 +143,8 @@ Giving me feedback
 ==================
 
 I'm writing a book on programming and Django. So there's only one real choice
-for giving structured feedback: github. Open issues or give me pull
-requests. I'll first have to put my book's code on github, though. I haven't
-done that yet.
+for giving structured feedback: github. https://github.com/reinout/soliddjango
+. Open issues or give me pull requests.
 
 If you've got generic feedback, it is probably easiest to send me a regular
 email at `reinout@vanrees.org <mailto:reinout@vanrees.org>`_.
