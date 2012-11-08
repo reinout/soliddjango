@@ -9,7 +9,7 @@ import datetime
 
 project = "Solid Django"
 author = "Reinout van Rees"
-version = "Early, early"
+version = "0.1"
 release = ""
 
 this_year = datetime.date.today().year
