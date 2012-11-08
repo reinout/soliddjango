@@ -11,36 +11,31 @@ Python handles compiling and optimization behind the scenes. You can try
 out a Python statement, for example a print statement, and see the
 results immediately. Run ``python`` (or the full path to Python if
 necessary) on your commandline to display a Python prompt (which looks
-like ``>>>``):
+like ``>>>``)::
 
-::
-
-          $ python
-          Python 2.6.7 (r267:88850, Jan 31 2012, 22:15:51)
-          [GCC 4.2.1 Compatible Apple Clang 3.0 (tags/Apple/clang-211.12)] on darwin
-          Type "help", "copyright", "credits" or "license" for more information.
-          >>> print "Wow, a Python prompt!"
-          Wow, a Python prompt!
-          >>> exit()
+    $ python
+    Python 2.6.7 (r267:88850, Jan 31 2012, 22:15:51)
+    [GCC 4.2.1 Compatible Apple Clang 3.0 (tags/Apple/clang-211.12)] on darwin
+    Type "help", "copyright", "credits" or "license" for more information.
+    >>> print "Wow, a Python prompt!"
+    Wow, a Python prompt!
+    >>> exit()
 
 
-All your regular Python code will be in files with the ``py`` extension.
+All your regular Python code will be in files with the ``.py`` extension.
 
 Python is a dynamically typed language, so it doesn't perform static
 type checks. You do not have to declare your variables or the *type* of
 your variables in Python. Assigning a variable is done with a single
-*equals* sign:
+*equals* sign::
 
-::
-
-          $ python
-          >>> greeting = "Hello, variable"
-          >>> print greeting
-          Hello, variable
+    >>> greeting = "Hello, variable"
+    >>> print greeting
+    Hello, variable
 
 
 After reviewing this appendix, if you still want a more in-depth
-introduction to Python, look at Dive into Python [1]_ or .
+introduction to Python, look at `Dive into Python <http://www.diveintopython.net/>`_ or .
 
 Data In Python
 ==============
@@ -60,24 +55,18 @@ as there's at least one non-integer number, division works exactly as it
 would on any calculator in the world. However, when there are only
 integers, Python rounds the result to always return an integer.
 
-Type this into your Python prompt for an example of Python's division:
+Type this into your Python prompt for an example of Python's division::
 
-::
-
-
-            $ python
-            >>> type(2)
-            <type 'int'>
-            >>> type(2.0)
-            <type 'float'>
-            >>> 3/2
-            1
-            >>> 3.0/2
-            1.5
-            >>> 3/2.0
-            1.5
-
-
+      >>> type(2)
+      <type 'int'>
+      >>> type(2.0)
+      <type 'float'>
+      >>> 3/2
+      1
+      >>> 3.0/2
+      1.5
+      >>> 3/2.0
+      1.5
 
 As you can see in the code, 3 divided by 2 returns 1 when using only
 whole numbers. When you add a decimal point to either integer, the
@@ -85,24 +74,21 @@ result is 1.5 (which is what we would normally expect). Remember, in
 Python, add a decimal to integers to save yourself from strange
 calculations.
 
+
 Strings
 -------
 
 Double or single quotes can surround regular strings in Python. Either
-choice is fine. Here's an example:
+choice is fine. Here's an example::
 
-::
-
-            $ python
-            >>> ''
-            ''
-            >>> 'string'
-            'string'
-            >>> "a book's apostroph"
-            "a book's apostroph"
-            >>> 'a book\'s apostroph'
-            "a book's apostroph"
-
+      >>> ''
+      ''
+      >>> 'string'
+      'string'
+      >>> "a book's apostroph"
+      "a book's apostroph"
+      >>> 'a book\'s apostroph'
+      "a book's apostroph"
 
 The last two examples show that you can use single quotes as-is inside a
 double quote string (and vice versa) or that you can escape them with a
@@ -114,33 +100,29 @@ for international characters and for regular expressions.
 International Characters: Unicode Strings
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-International characters are those characters outside of the ASCII
-characters range. Basically everything except a-z, A-Z, numbers and a
-few characters like ``-/+:;``. If you use international characters
-(chinese signs, IKEA product names), you need to use unicode [2]_
+International characters are those characters outside of the ASCII characters
+range. Basically everything except a-z, A-Z, numbers and a few characters like
+``-/+:;``. If you use international characters (chinese signs, IKEA product
+names), you need to use `unicode <https://en.wikipedia.org/wiki/Unicode>`__
 strings. Unicode is the world-wide standard for encoding *all* possible
-characters. Django always gives you unicode strings when you retrieve
-strings from a web form or from a database, so you do not have to worry
-about the local encodings.
+characters. Django always gives you unicode strings when you retrieve strings
+from a web form or from a database, so you do not have to worry about the
+local encodings.
 
 When you enter international characters in Python, you prefix the
-opening quote with a ``u`` character to indicate a unicode string:
+opening quote with a ``u`` character to indicate a unicode string::
 
-::
-
-              $ python
-              >>> 'string'
-              'string'
-              >>> u'unicode string'
-              u'unicode string'
-              >>> print u'latin small letter e with diaeresis is \u00eb'
-              latin small letter e with diaeresis is ë
-
+        >>> 'string'
+        'string'
+        >>> u'unicode string'
+        u'unicode string'
+        >>> print u'latin small letter e with diaeresis is \u00eb'
+        latin small letter e with diaeresis is ë
 
 The last example shows one way to enter non-ASCII characters in Python
-code---a ``\u`` followed by the unicode code for the character (which
-you can find on the unicode website) [3]_. ``00eb`` in this example is
-the code for an *ë*.
+code---a ``\u`` followed by the unicode code for the character (which you can
+find on the `unicode website <http://unicode.org/charts/>`_)_. ``00eb`` in
+this example is the code for an *ë*.
 
 When you're writing Python files, it is easier to tell Python which
 character set to use, and let Python handle the conversion to unicode.
@@ -154,21 +136,20 @@ set used most is ``utf-8``.
 Regular Expressions: Raw Strings
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Django uses regular expressions [4]_ in its URL configuration, see . You
-use backslashes a lot in regular expression syntax. Python also uses
-backslashes to give some characters in a string a special meaning:
+Django uses `regular expressions
+<http://www.diveintopython.net/regular_expressions/>`__ in its URL
+configuration, see . You use backslashes a lot in regular expression
+syntax. Python also uses backslashes to give some characters in a string a
+special meaning::
 
-::
+        >>> print "A string with two newlines.\n\nAnd a second line."
+        A string with two newlines.
 
-              $ python
-              >>> print "A string with two newlines.\n\nAnd a second line."
-              A string with two newlines.
-
-              And a second line.
-              >>> print "And \ttabs \twork \t\talso."
-              And   tabs    work        also.
-              >>> print "And also \b , though you won't see output."
-              And also , though you won't see output.
+        And a second line.
+        >>> print "And \ttabs \twork \t\talso."
+        And   tabs    work        also.
+        >>> print "And also \b , though you won't see output."
+        And also , though you won't see output.
 
 
 You see here that Python treats ``\n`` and ``\t`` as newline and tab
@@ -176,15 +157,12 @@ characters respectively. ``\b`` is the ancient bell (or beep) signal.
 
 Here you have a problem. A ``\b`` means LQUOTwhitespace at the start or
 end of a wordRQUOT in a regular expression. To preserve the backslash in
-the string, you need to escape it with another backslash:
+the string, you need to escape it with another backslash::
 
-::
-
-              $ python
-              >>> print "This \b is not preserved"
-              This  is not preserved
-              >>> print "This \\b is properly preserved"
-              This \b is properly preserved
+        >>> print "This \b is not preserved"
+        This  is not preserved
+        >>> print "This \\b is properly preserved"
+        This \b is properly preserved
 
 
 To retain a backslash in a Python string, you need to put in two
@@ -194,16 +172,12 @@ regular expression harder to read.
 
 Python gives you a special kind of string that preserves all
 backslashes: a raw string. Just put an ``r`` in front of the string's
-quotes:
+quotes::
 
-::
-
-              $ python
-              >>> print "The basic solution is a double backslash: \\b"
-              The basic solution is a double backslash: \b
-              >>> print r"Alternative: a raw string. \b stays \b"
-              Alternative: a raw string. \b stays \b
-
+        >>> print "The basic solution is a double backslash: \\b"
+        The basic solution is a double backslash: \b
+        >>> print r"Alternative: a raw string. \b stays \b"
+        Alternative: a raw string. \b stays \b
 
 Remember, you only need a raw string's special treatment of backslash
 characters for regular expressions.
@@ -218,21 +192,18 @@ Dictionary
 ~~~~~~~~~~
 
 A dictionary is a key/value mapping. It is often called a *hash table*
-in other languages. In Python, you create it by using curly braces:
+in other languages. In Python, you create it by using curly braces::
 
-::
-
-              $ python
-              >>> my_data = {'name': 'Reinout',
-              ...            'city': 'Nieuwegein',
-              ...            'country': 'The Netherlands'}
-              >>> my_data.keys()
-              ['city', 'name', 'country']
-              >>> my_data['city']
-              'Nieuwegein'
-              >>> my_data['continent'] = 'Eurasia'
-              >>> my_data.keys()
-              ['city', 'continent', 'name', 'country']
+        >>> my_data = {'name': 'Reinout',
+        ...            'city': 'Nieuwegein',
+        ...            'country': 'The Netherlands'}
+        >>> my_data.keys()
+        ['city', 'name', 'country']
+        >>> my_data['city']
+        'Nieuwegein'
+        >>> my_data['continent'] = 'Eurasia'
+        >>> my_data.keys()
+        ['city', 'continent', 'name', 'country']
 
 
 ``my_data`` in the example above starts out as a dictionary with three
@@ -248,20 +219,16 @@ List
 ~~~~
 
 A list in Python is a modifiable list of values; you can sort it
-in-place and add or remove items. You write it with square brackets.
+in-place and add or remove items. You write it with square brackets::
 
-::
-
-              $ python
-              >>> my_kids = ['Rianne', 'Floris']
-              >>> my_kids.append('Elizabeth')
-              >>> my_kids
-              ['Rianne', 'Floris', 'Elizabeth']
-              >>> my_kids[0]
-              'Rianne'
-              >>> my_kids[-1]
-              'Elizabeth'
-
+        >>> my_kids = ['Rianne', 'Floris']
+        >>> my_kids.append('Elizabeth')
+        >>> my_kids
+        ['Rianne', 'Floris', 'Elizabeth']
+        >>> my_kids[0]
+        'Rianne'
+        >>> my_kids[-1]
+        'Elizabeth'
 
 Accessing items happens with square brackets just as it does with
 dictionaries. A list's index starts at zero, so ``my_kids[0]`` gives you
@@ -278,24 +245,20 @@ A tuple is like a list, only immutable. Once created, it cannot be
 changed. This is handy for configuration; in a Django settings file,
 you'll see tuples rather than lists. If you want to add something, you
 need to create a new tuple. You create one by using regular parentheses
-and at least one comma:
+and at least one comma::
 
-::
-
-              $ python
-              >>> my_parents = ('Alie', 'Herman')
-              >>> my_parents[0]
-              'Alie'
-
+        >>> my_parents = ('Alie', 'Herman')
+        >>> my_parents[0]
+        'Alie'
 
 Like lists, you access tuple items with an index between square
 brackets.
 
-You must watch out with those parentheses that indicate a tuple.
-Parentheses are also used for grouping, like ``(1 + 2) *
-          3``. What makes a tuple a tuple is that there is at least one
-comma between the parentheses. So ``('reinout')`` is the string
-``'reinout'``, but ``('reinout',)`` is a one-item tuple.
+You must watch out with those parentheses that indicate a tuple.  Parentheses
+are also used for grouping, like ``(1 + 2) * 3``. What makes a tuple a tuple
+is that there is at least one comma between the parentheses. So
+``('reinout')`` is the string ``'reinout'``, but ``('reinout',)`` is a
+one-item tuple.
 
 Boolean And Nothing
 -------------------
@@ -323,35 +286,32 @@ Indentation
 The indentation in Python confuses many programmers when they are first
 learning the language. Most programming languages use something like
 curly braces to group statements, such as for an if/else. Here is a
-JavaScript example:
+JavaScript example::
 
-::
-
-            if (kind === "2") {
-                map_type = G_PHYSICAL_MAP;
-            } else {
-                map_type = G_NORMAL_MAP;
-            }
+      if (kind === "2") {
+          map_type = G_PHYSICAL_MAP;
+      } else {
+          map_type = G_NORMAL_MAP;
+      }
 
 
 You see the indentation in the JavaScript, but it's not mandatory. It
 just helps humans read the code. Python, on the other hand, makes the
 indentation mandatory. The beginning and end of a block of code isn't
-indicated by curly braces but by the start and end of indentation:
+indicated by curly braces but by the start and end of indentation::
 
-::
-
-            if kind == 2:
-                map_type = G_PHYSICAL_MAP
-            else:
-                map_type = G_NORMAL_MAP
+      if kind == 2:
+          map_type = G_PHYSICAL_MAP
+      else:
+          map_type = G_NORMAL_MAP
 
 
-This looks less cluttered. Since all Python code has the same
-indentation rules, reading code is easy and predictable. Python code
-should always be indented in steps of *four spaces*; never use tabs. Any
-good editor for Python will use four spaces because Python's style
-guide [5]_ *strongly* recommends it.
+This looks less cluttered. Since all Python code has the same indentation
+rules, reading code is easy and predictable. Python code should always be
+indented in steps of *four spaces*; never use tabs. Any good editor for Python
+will use four spaces because `Python's style guide
+<http://www.python.org/dev/peps/pep-0008/#tabs-or-spaces>`__ *strongly*
+recommends it.
 
 Conditions
 ----------
@@ -395,13 +355,12 @@ comprehensions. With a list comprehension you can filter and/or modify a
 list in one line of code instead of using a loop to do the same work.
 The best way to show you is with an example:
 
-The example takes a string with a couple of empty lines and filters out
-the empty lines. First, it uses a *for* loop by checking if a line is
-not empty and, if not, by appending it to the result. After that it does
-the same with a simple one-line list comprehension, which takes the form
-``[new for old in list if
-        condition]``. Once you get used to the syntax, a list
-comprehension is much shorter and easier to read than a loop.
+The example takes a string with a couple of empty lines and filters out the
+empty lines. First, it uses a *for* loop by checking if a line is not empty
+and, if not, by appending it to the result. After that it does the same with a
+simple one-line list comprehension, which takes the form ``[new for old in
+list if condition]``. Once you get used to the syntax, a list comprehension is
+much shorter and easier to read than a loop.
 
 Structure Within Files
 ======================
@@ -436,8 +395,8 @@ arguments. A keyword argument has the following advantages:
 Every keyword argument has a default value.
 
 The order in which the keyword arguments are passed doesn't matter.
-``your_method(a='aa', b='bb')`` is the same as
-``your_method(b='bb', a='aa')``.
+``your_method(a='aa', b='bb')`` is the same as ``your_method(b='bb',
+a='aa')``.
 
 Your functions are easier to evolve. If you decide to add a positional
 argument, you need to update all the places where you call your
@@ -502,11 +461,10 @@ should have its ``__init__.py`` to mark it as a package.
 Importing Modules And Packages
 ------------------------------
 
-Different Python files in different directories also means you need to
-be able to refer to them in some way so that you can use them. In Python
-this is called *importing*. You import modules and packages with the
-``import xyz`` or ``from abc
-        import xyz`` statement:
+Different Python files in different directories also means you need to be able
+to refer to them in some way so that you can use them. In Python this is
+called *importing*. You import modules and packages with the ``import xyz`` or
+``from abc import xyz`` statement:
 
 CODE HERE file="code/python/imports.py"
 
@@ -562,23 +520,3 @@ this`` at the prompt::
 
 
 Sure, there are some jokes in there, but ... TODO
-
-
-
-
-
-
-.. [1]
-   http://www.diveintopython.net/
-
-.. [2]
-   https://en.wikipedia.org/wiki/Unicode
-
-.. [3]
-   http://unicode.org/charts/
-
-.. [4]
-   http://www.diveintopython.net/regular_expressions/
-
-.. [5]
-   http://www.python.org/dev/peps/pep-0008/#tabs-or-spaces
