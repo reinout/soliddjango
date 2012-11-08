@@ -6,6 +6,7 @@ Solid django
 
    preface
 
+
 Part 1: Django's foundation
 ===========================
 
@@ -16,6 +17,7 @@ Part 1: Django's foundation
    part1/models_and_admin
    part1/views
    part1/urls
+
 
 Part 2: Django's common building blocks
 =======================================
@@ -30,6 +32,7 @@ Part 2: Django's common building blocks
    part2/editing_and_forms
    part2/debugging
    part2/hosting_and_webserver
+
 
 Part 3: Django's extras
 =======================
