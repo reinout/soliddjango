@@ -1,4 +1,4 @@
-Solid django
+Solid Django
 ############
 
 .. toctree::
