@@ -5,7 +5,6 @@ Solid Django
    :maxdepth: 1
 
    preface
-   toc
 
 
 Part 1: Django's foundation
@@ -53,3 +52,4 @@ Appendices
    :maxdepth: 1
 
    appendices/python
+   toc
