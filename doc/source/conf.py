@@ -9,8 +9,7 @@ import datetime
 
 project = "soliddjango"
 author = "Reinout van Rees"
-version = "0.1"
-release = ""
+release = "0.1dev"
 
 this_year = datetime.date.today().year
 copyright = '%s, %s' % (this_year, author)
@@ -95,7 +94,7 @@ html_theme = 'default'
 
 # The name for this set of Sphinx documents.  If None, it defaults to
 # "<project> v<release> documentation".
-html_title = 'Solid Django (<release>)'
+html_title = 'Solid Django ({release})'.format(release=release)
 
 # A shorter title for the navigation bar.  Default is the same as html_title.
 #html_short_title = None
