@@ -9,7 +9,6 @@ Solid Django
 
 
 Part 1: Django's foundation
-===========================
 
 .. toctree::
    :maxdepth: 1
@@ -21,7 +20,6 @@ Part 1: Django's foundation
 
 
 Part 2: Django's common building blocks
-=======================================
 
 .. toctree::
    :maxdepth: 1
@@ -36,7 +34,6 @@ Part 2: Django's common building blocks
 
 
 Part 3: Django's extras
-=======================
 
 .. toctree::
    :maxdepth: 1
@@ -51,7 +48,6 @@ Part 3: Django's extras
 
 
 Appendices
-==========
 
 .. toctree::
    :maxdepth: 1
