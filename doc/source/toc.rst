@@ -8,7 +8,6 @@ Full table of contents
 
 
 Part 1: Django's foundation
-===========================
 
 .. toctree::
    :maxdepth: 2
@@ -20,7 +19,6 @@ Part 1: Django's foundation
 
 
 Part 2: Django's common building blocks
-=======================================
 
 .. toctree::
    :maxdepth: 2
@@ -35,7 +33,6 @@ Part 2: Django's common building blocks
 
 
 Part 3: Django's extras
-=======================
 
 .. toctree::
    :maxdepth: 2
@@ -50,7 +47,6 @@ Part 3: Django's extras
 
 
 Appendices
-==========
 
 .. toctree::
    :maxdepth: 1
