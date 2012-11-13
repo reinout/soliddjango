@@ -1,2 +1,2 @@
 # -*- coding: utf-8 -*-
-print "The Dutch word for seas is zeeën."
+print("The Dutch word for seas is zeeën.")

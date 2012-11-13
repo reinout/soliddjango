@@ -1,17 +1,17 @@
 def print_names():
     """Print names."""
-    print 'Reinout'
-    print 'Harry'
+    print('Reinout')
+    print('Harry')
 
 
 def print_name(name):
-    """Print the name passed as argument."""
-    print name
+    """Print(the name passed as argument."""
+    print(name)
 
 
 def print_default_name(name='Reinout'):
-    """Print the name (default is Reinout)."""
-    print name
+    """Print(the name (default is Reinout)."""
+    print(name)
 
 
 # You call them like this:
