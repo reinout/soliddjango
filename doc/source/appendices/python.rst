@@ -577,9 +577,9 @@ Explicit is better than implicit
     know all the special magic rules.
 
     Explicit is often clearer. Django's configuration file has a
-    ``ROOT_URLCONF`` parameter, pointing at a specific Python file with a
-    URLconf in it. This itself is an explicit list of which URLs match
-    what. There can be no confusion over which URL matches what because
+    ``ROOT_URLCONF`` parameter, pointing at a specific Python
+    file with a URLconf in it. This itself is an explicit list of which URLs
+    match what. There can be no confusion over which URL matches what because
     everything is explicit.
 
 Readability counts
