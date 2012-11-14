@@ -1,16 +1,12 @@
-for name in ['Reinout', 'Harry']:
+for name in ['Reinout', 'Maurits']:
     print(name)
 
-# START_HIGHLIGHT
 for i in range(10):
-    # END_HIGHLIGHT
     print("Django")
 
-# START_HIGHLIGHT
-for index, name in enumerate(['Reinout', 'Harry']):
-    # END_HIGHLIGHT
+for index, name in enumerate(['Reinout', 'Maurits']):
     print(index, name)
-    # Prints '0 Reinout' and '1 Harry'
+    # Prints '0 Reinout' and '1 Maurits'
 
 cities = {'Nieuwegein': 'The Netherlands',
           'Utrecht': 'The Netherlands',

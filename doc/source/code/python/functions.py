@@ -1,7 +1,7 @@
 def print_names():
     """Print names."""
     print('Reinout')
-    print('Harry')
+    print('Maurits')
 
 
 def print_name(name):
@@ -15,7 +15,7 @@ def print_default_name(name='Reinout'):
 
 
 # You call them like this:
-print_names()
-print_name('Harry')
-print_default_name()
-print_default_name('Harry')
+print_names()  # Prints Reinout and Maurits.
+print_name('Maurits')  # Prints Maurits.
+print_default_name()  # Prints Reinout.
+print_default_name('Maurits')  # Prints Maurits.

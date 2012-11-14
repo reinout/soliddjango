@@ -20,9 +20,7 @@ for line in lines:
 print(len(result))  # 3, three lines with actual text.
 
 # Alternative: a list comprehension.
-# START_HIGHLIGHT
 comprehension = [line for line in lines if line.strip()]
-# END_HIGHLIGHT
 print(len(comprehension))  # Also 3.
 
 # You can also modify a list:
