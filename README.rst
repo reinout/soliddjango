@@ -5,6 +5,11 @@ You're looking at the source code for my (`Reinout van Rees
 <http://reinout.vanrees.org>`_) Django book project. The actual book content
 is in the ``doc/source/`` directory, the rest in here is build scripts and so.
 
+To see how much I'm doing since re-starting the project on github in early
+November 2012, just look at
+https://github.com/reinout/soliddjango/graphs/code-frequency . Hurray for open
+source, that way you get all those fancy graphs for free :-)
+
 
 License
 -------
