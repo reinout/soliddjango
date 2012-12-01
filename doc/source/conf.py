@@ -5,12 +5,12 @@
 # serve to show the default.
 
 import datetime
+import os
+import sys
 
-
-project = "Solid Django"
+project = "soliddjango"
 author = "Reinout van Rees"
-version = "0.1"
-release = ""
+release = "0.1dev"
 
 this_year = datetime.date.today().year
 copyright = '%s, %s' % (this_year, author)
@@ -21,7 +21,8 @@ copyright = '%s, %s' % (this_year, author)
 # If extensions (or modules to document with autodoc) are in another directory,
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
-#sys.path.insert(0, os.path.abspath('.'))
+sys.path.append(
+    os.path.abspath(os.path.join(os.path.dirname(__file__), "_ext")))
 
 # -- General configuration -----------------------------------------------------
 
@@ -30,7 +31,8 @@ copyright = '%s, %s' % (this_year, author)
 
 # Add any Sphinx extension module names here, as strings. They can be extensions
 # coming with Sphinx (named 'sphinx.ext.*') or your custom ones.
-extensions = ['sphinx.ext.autodoc', 'sphinx.ext.intersphinx', 'sphinx.ext.todo', 'sphinx.ext.viewcode']
+extensions = ['djangodocs', 'sphinx.ext.autodoc', 'sphinx.ext.intersphinx',
+              'sphinx.ext.todo', 'sphinx.ext.viewcode']
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -95,7 +97,7 @@ html_theme = 'default'
 
 # The name for this set of Sphinx documents.  If None, it defaults to
 # "<project> v<release> documentation".
-#html_title = None
+html_title = 'Solid Django ({release})'.format(release=release)
 
 # A shorter title for the navigation bar.  Default is the same as html_title.
 #html_short_title = None
@@ -170,7 +172,7 @@ latex_font_size = '11pt'
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title, author, documentclass [howto/manual]).
 latex_documents = [
-  ('index', '%s.tex' % project, u'%s Documentation' % project,
+  ('index', '%s.tex' % project, u'Solid Django',
    author, 'manual'),
 ]
 
@@ -199,4 +201,8 @@ latex_documents = [
 
 
 # Example configuration for intersphinx: refer to the Python standard library.
-intersphinx_mapping = {'http://docs.python.org/': None}
+intersphinx_mapping = {
+    'python': ('http://python.readthedocs.org/en/v2.7.2/', None),
+    'django': ('http://django.readthedocs.org/en/latest/', None),
+    'sphinx': ('http://sphinx.readthedocs.org/en/latest/', None),
+    }

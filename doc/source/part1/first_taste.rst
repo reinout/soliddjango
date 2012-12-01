@@ -1,5 +1,5 @@
-Getting started
-###############
+Getting started TODO
+####################
 
 We've all been there. You start out building a website that is well-structured
 and with clean code, but a looming deadline forces you to make compromises and
