@@ -921,13 +921,3 @@ Add a link to the dukes page in the homepage template. First do it just in
 plain HTML. Second, Google for Django's ``{% url %}`` template tag and see if
 you can get the URL in via its name. Hint: we gave the ``dukes/`` URL a name
 in our ``urls.py``.
-
-
-
-Work in progress TODO stuff
-===========================
-
-TODO: from
-http://reinout.vanrees.org/weblog/2010/05/25/jan-lehnhardt-keynote.html: On
-twitter, @jacobian said I’m pleased to hear @janl talk about the inherent
-tension in Django’s “perfectionists with deadlines” slogan. Too true.
