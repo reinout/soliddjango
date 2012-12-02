@@ -1,6 +1,12 @@
 Introducing Python for Django programmers
 #########################################
 
+.. epigraph::
+
+   White space, the opposite of black hole?
+
+   -- Joris Slob
+
 Understanding the basics of Python is critical for programming in
 Django. Fortunately, Python is easy to learn if you already know another
 language. This appendix gives you a high level overview to help you understand

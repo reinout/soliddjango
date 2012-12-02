@@ -1,6 +1,12 @@
 Getting started TODO
 ####################
 
+.. epigraph::
+
+   If you think the problem is bad now, just wait until we've solved it.
+
+   -- Arthur Kasspe
+
 We've all been there. You start out building a website that is well-structured
 and with clean code, but a looming deadline forces you to make compromises and
 take shortcuts. Here is the solution to your problem: Django. Django is
@@ -14,7 +20,7 @@ over the next several chapters. Finally, you'll install Django and write your
 first Django code.
 
 
-How Django Works
+How Django works
 ================
 
 Django gives you rapid development and a clean, pragmatic design. By writing
@@ -48,18 +54,27 @@ View
     them. It also contains an automatic admin interface for editing the models
     in the model layer.
 
-RR: remove settings from the figure IMG HERE
-fileref="images/first\_taste/django\_diagram.png"
+.. TODO: remove settings from the figure
 
-shows how Django works. Django itself is configured through a settings file. A
-browser sends a request with a URL to Django. Django looks up the URL in a URL
-configuration file to determine what to do with the request. It can either:
 
-Call the automatic admin interface, which is a web interface for Django's
-database content. The admin interface works directly with the model layer.
+.. _fig-firsttaste-djangodiagram:
 
-Render a custom web page. Django separates web pages into an HTML template
-language and Python view code.
+.. figure:: /images/first_taste/django_diagram.png
+   :width: 100%
+
+   Diagram of Django (explained as model-view-controller)
+
+
+:ref:`fig-firsttaste-djangodiagram` shows how Django works. Django itself is
+configured through a settings file. A browser sends a request with a URL to
+Django. Django looks up the URL in a URL configuration file to determine what
+to do with the request. It can either:
+
+- Call the automatic admin interface, which is a web interface for Django's
+  database content. The admin interface works directly with the model layer.
+
+- Render a custom web page. Django separates web pages into an HTML template
+  language and Python view code.
 
 Underneath it all is the model layer/database integration. The admin interface
 shows and edits what's in the database. The views can access the database
@@ -67,7 +82,8 @@ data, too.
 
 Let's take a closer look at these parts.
 
-Models: Integrating With a Database
+
+Models: integrating with a database
 -----------------------------------
 
 Django stores its data in relational databases (SQL) by default. Django helps
@@ -88,19 +104,22 @@ and relatively error-prone; with Django's ORM you can write your queries in
 more readable Python code. At the same time, Django optimizes your queries,
 saving you valuable time and effort.
 
-Admin Interface: Interacting With the Models
+
+Admin interface: interacting with the models
 --------------------------------------------
 
-RR: add a screenshot One of Django's strong points is that you automatically
-get a browser-based admin interface for your database models. From the luxury
-of your browser you can view, edit, add, and delete objects in your database.
+.. TODO: add a screenshot
+
+One of Django's strong points is that you automatically get a browser-based
+admin interface for your database models. From the luxury of your browser you
+can view, edit, add, and delete objects in your database.
 
 The interface is fully customizable. You can choose which fields to include or
 to make read-only, which fields to show in the list of objects, and which
 models to show. Per-field explanation text, dropdowns, and radio buttons are
 all configurable.
 
-Templates: the HTML Part of Showing a Web Page
+Templates: the HTML part of showing a web page
 ----------------------------------------------
 
 Django uses both Python code and an HTML template to generate a web page. You
@@ -121,7 +140,7 @@ that. PHP mixes everything, including database access, inside the HTML
 page. With Django, the separation of concerns is built in; you have to make an
 effort to end up with dirty code.
 
-Views: the Python Part of Showing a Web Page
+Views: the Python part of showing a web page
 --------------------------------------------
 
 Because the templates are dumb, your Python view code has to do the heavy
@@ -134,38 +153,46 @@ works well. Django forces you to do more in Python and less in the template
 language, which is good as Python code is often the better place to do
 things. Why? Embedding programming code within HTML tags is less clean and
 harder to read and more error-prone than programming code in an actual Python
-file. *a bit awkTODO for HH*
+file.
 
-*RR: condense to one or two sentences at the top of the sect1* Note that the
-Python view code is separate from the Python code in the database model
-layer.\ *what does separate mean?* The character of the Python code in each is
-often quite different.\ *rep?* The view code deals with lots of details like
-reacting to form parameters or different kinds of users. View code can feel
-like a very active bird, flying to and fro. In contrast, model code often
-feels like a plow horse, plodding purposefully along.\ *why?* Django
-encourages us to separate these two different kinds of Python code.\ *how does
-it encourage it?*
+.. TODO: condense to one or two sentences at the top of the sect1
 
-URLs: Dispatching The Browser Requests
+Note that the Python view code is separate from the Python code in the
+database model layer.  The character of the Python
+code in each is often quite different. The view code deals with lots
+of details like reacting to form parameters or different kinds of users. View
+code can feel like a very active bird, flying to and fro. In contrast, model
+code often feels like a plow horse, plodding purposefully along.
+Django encourages us to separate these two different kinds of Python code.
+
+.. TODO: how does it encourage it?
+
+
+
+URLs: dispatching the browser requests
 --------------------------------------
 
-*shouldn't this be the first subsection because it's the first think that
-happens?* Django's URL configuration files steer the whole process.  Web
-browsers send URLs to Django. Django looks up the request in its URL
-configuration file and dispatches it to the appropriate view or admin page.
+.. TODO: shouldn't this be the first subsection because it's the first think that
+   happens?
+
+Django's URL configuration files steer the whole process.  Web browsers send
+URLs to Django. Django looks up the request in its URL configuration file and
+dispatches it to the appropriate view or admin page.
 
 Sending different URLs to different views or admin pages is a separate,
 clearly defined task, so Django separates it out and keeps the URL handling
-out of the view code.\ *how? wouldn't this be better in the overview*
+out of the view code.
 
-Settings: Configuring Django
+
+Settings: configuring Django
 ----------------------------
 
-*maybe this is better just in the overview too, and talk about the details
-when you start building something* Django can be configured in detail, which
-is done in a *settings file*. Because Django promises rapid development, it
-has sensible defaults for most settings. However, you *need* to set which
-database to use.
+.. TODO: maybe this is better just in the overview too, and talk about the details
+   when you start building something.
+
+Django can be configured in detail, which is done in a *settings
+file*. Because Django promises rapid development, it has sensible defaults for
+most settings. However, you *need* to set which database to use.
 
 You can use the settings file to add configuration to your own Django
 applications. A settings file is just a Python file, so you are free to add
@@ -174,7 +201,8 @@ Google maps, you can make it configurable by looking for a
 ``GOOGLE_MAPS_DEV_ID`` in the settings file. Django doesn't mind if you add
 extra items to the settings file.
 
-Introducing the Castle Website
+
+Introducing the castle website
 ==============================
 
 A book like this works best when you've got an example to follow. It gives you
@@ -189,7 +217,10 @@ focus on Django, instead of on the actual example. At least, that's my goal.
 Let's start with some background on the duke and the castle website, and a
 peek at what the castle website will be when we've finished it.
 
-The Duke's New Castle
+.. TODO: photo of a random castle?
+
+
+The duke's new castle
 ---------------------
 
 Duke Folcmar rules over a wooded realm with gentle hills, a river and several
@@ -200,120 +231,137 @@ are:
 
 PR
 
-The image that he projects. As a medieval lord, reputation is
-everything. Tales of his strengths or weaknesses change the way his
-not-always-friendly neighbors deal with him. If bards sing songs of his
-prowess and praise the might of his army, other lords treat him with respect
-and offer tokens of peace. Stories of weakness encourage these same lords to
-test Duke Folcmar's mettle with petty wars and skirmishes.
+    The image that he projects. As a medieval lord, reputation is
+    everything. Tales of his strengths or weaknesses change the way his
+    not-always-friendly neighbors deal with him. If bards sing songs of his
+    prowess and praise the might of his army, other lords treat him with
+    respect and offer tokens of peace. Stories of weakness encourage these
+    same lords to test Duke Folcmar's mettle with petty wars and skirmishes.
 
 Power
 
-Power relative to his neighbors. Treaties mean nothing, power means
-everything. For the surrounding nobility, power is measured best by the size
-of the realm you hold. Duke Folcmar has a neighbor that has constructed a
-small keep on his border, giving nearby commoners and passing traders the
-sense that he, not the duke, is the true lord of the land. Unacceptable.
+    Power relative to his neighbors. Treaties mean nothing, power means
+    everything. For the surrounding nobility, power is measured best by the
+    size of the realm you hold. Duke Folcmar has a neighbor that has
+    constructed a small keep on his border, giving nearby commoners and
+    passing traders the sense that he, not the duke, is the true lord of the
+    land. Unacceptable.
 
 Trade
 
-Land is one thing, but trade brings in the coin of the realm. Money is
-influence, prestige and can pay a mercenary army. Traders don't mind tolls on
-their journeys if they are well-protected and can be assured of speedy and
-safe travels. After contemplating his coffers, the duke has decided to
-proclaim his realm as the duchy of road safety. Funding a campaign to flush
-out most brigands and eliminate the two robber barons along the main trade
-road will cost the price of a grand tournament, but the increase in trade,
-taxes and toll tariffs will offset it in a few years' time.
+    Land is one thing, but trade brings in the coin of the realm. Money is
+    influence, prestige and can pay a mercenary army. Traders don't mind tolls
+    on their journeys if they are well-protected and can be assured of speedy
+    and safe travels. After contemplating his coffers, the duke has decided to
+    proclaim his realm as the duchy of road safety. Funding a campaign to
+    flush out most brigands and eliminate the two robber barons along the main
+    trade road will cost the price of a grand tournament, but the increase in
+    trade, taxes and toll tariffs will offset it in a few years' time.
 
-Duke Folcmar has devised a plan to address all of his concerns. First, he will
-build a mighty castle that will be the new ancestral seat of power for his
-line: good PR. Second, he will strategically place it near the pesky keep of
-that unfriendly neighbor, demonstrating his power.  Third, it will also watch
-down over the main road, promoting trade.
+Duke Folcmar has devised a plan to address all of his concerns. **First**, he
+will build a mighty castle that will be the new ancestral seat of power for
+his line: good PR. **Second**, he will strategically place it near the pesky
+keep of that unfriendly neighbor, demonstrating his power.  **Third**, it will
+also watch down over the main road, promoting trade. **Finally**, the duke's
+plan requires a castle website, and he has selected us to do it. Let's listen
+to the duke explain it to us:
 
-Finally, the duke's plan requires a castle website, and he has selected us to
-do it. Let's listen to the duke explain it to us:
+Duke Folcmar
 
-Good morning. I will build a new castle named *Niederburg*. It will be sited
-near the main trade road so that I can protect the merchants. My builders have
-found a location in a bend of the river so that the castle will be nigh
-unassailable on three sides. The castle assuch will be the envy of all my
-opponents. It is, however, not enough that the castle is perfect: people have
-to *know and hear* that it is perfect. Therefore, I require a website. You
-will build it for me.
+    Good morning. I will build a new castle named *Niederburg*. It will be
+    sited near the main trade road so that I can protect the merchants. My
+    builders have found a location in a bend of the river so that the castle
+    will be nigh unassailable on three sides. The castle assuch will be the
+    envy of all my opponents. It is, however, not enough that the castle is
+    perfect: people have to *know and hear* that it is perfect. Therefore, I
+    require a website. You will build it for me.
 
-Wow, Duke Folcmar, thanks for ordering us to build the website for your new
-castle. But, pray, tell us more about what you require of us.
+Us
 
-You have rightly noticed that a simple homepage with a photo of the castle is
-not what I desire. My goal with the website is twofold. On the one hand I want
-good PR. Lots of info on the castle, on my family line, on my history. And on
-my mission of protecting trade on the main road.
+    Wow, Duke Folcmar, thanks for ordering us to build the website for your
+    new castle. But, pray, tell us more about what you require of us.
 
-On the other hand, attracting trade is another goal of the castle's
-website. Information on how I protect the road. Monthly statistics on the
-amount of highway robbers my armsmen capture and string up. And later I want
-the traders to submit their schedule via the website so that I can plan my
-armsmen's deployments better. Let me be absolutely clear on this point: I can
-not brook any security breaches of the website. I do not want highway robbers
-to get a trader's schedule out of my database. If that ever happens I will let
-my executioner explain the meaning of *deadline* to you.
+Duke Folcmar
 
-Do not worry, Duke Folcmar, we will use Django to make the website. It is a
-web framework for perfectionists with deadlines. Django has very good
-protection against most common kinds of attacks, just like your new castle.
+    You have rightly noticed that a simple homepage with a photo of the castle
+    is not what I desire. My goal with the website is twofold. On the one hand
+    I want good PR. Lots of info on the castle, on my family line, on my
+    history. And on my mission of protecting trade on the main road.
 
-Do not bore me with technical details. Start coding and show me something by
-next week Thursday. Off with you.
+    On the other hand, attracting trade is another goal of the castle's
+    website. Information on how I protect the road. Monthly statistics on the
+    amount of highway robbers my armsmen capture and string up. And later I
+    want the traders to submit their schedule via the website so that I can
+    plan my armsmen's deployments better. Let me be absolutely clear on this
+    point: I can not brook any security breaches of the website. I do not want
+    highway robbers to get a trader's schedule out of my database. If that
+    ever happens I will let my executioner explain the meaning of *deadline*
+    to you.
 
-The Finished Castle Site
-------------------------
+Us
 
-RR: remove *is this subsection needed? why does the reader need to know what
-will be in the finished site now?* The first two parts of this book teach you
-the core of Django. In them, we'll build the full castle website, chapter by
-chapter and subject by subject. Here's a taste of what we'll include in the
-website: *RR: Review this list after the first two parts of the book are
-finished to check if the order is still correct.*
+    Do not worry, Duke Folcmar, we will use Django to make the website. It is
+    a web framework for perfectionists with deadlines. Django has very good
+    protection against most common kinds of attacks, just like your new
+    castle.
 
-Of course a great look-and-feel including CSS stylesheets, images and
-JavaScript.
+Duke Folcmar
 
-Information on villages and towns in the area; especially their lodging
-facilities. To help traders traveling through our area.
+    Do not bore me with technical details. Start coding and show me something
+    by next week Thursday. Off with you.
 
-News and statistics on our duke's accomplishments to impress his neighbors and
-to deter would-be highwaymen. Making a *consistent* name for himself and
-providing *accurate* information help etch that name and those accomplishments
-in everyone's mind.
 
-A protected part of the website to allow traders to notify the duke's armsmen
-of their travel schedule (really protected, mind you). This should help in
-getting maximum efficiency out of the patrols.
+.. TODO: is this subsection needed? why does the reader need to know
+   what will be in the finished site now?
 
-For the PR, information on the duke, his illustrious family line and the
-castle itself.
+   The finished castle site
+   ------------------------
 
-A protected part of the site will include data on the personel of the castle,
-including the armsmen.
+   The first two parts of this book teach you the core of Django. In them,
+   we'll build the full castle website, chapter by chapter and subject by
+   subject. Here's a taste of what we'll include in the website: *RR: Review
+   this list after the first two parts of the book are finished to check if
+   the order is still correct.*
 
-We'll add these parts one by one to the website, keeping it working the whole
-time. *RR: condense above list to two sentences*
+   Of course a great look-and-feel including CSS stylesheets, images and
+   JavaScript.
 
-Django lends itself to iterative development: use that to your advantage. This
-is a good way to build any Django website. After you finish this book, you can
-use this approach when you build your own projects.
+   Information on villages and towns in the area; especially their lodging
+   facilities. To help traders traveling through our area.
 
-Iterative Development
----------------------
+   News and statistics on our duke's accomplishments to impress his neighbors
+   and to deter would-be highwaymen. Making a *consistent* name for himself
+   and providing *accurate* information help etch that name and those
+   accomplishments in everyone's mind.
 
-*shoule this be a sect1 so it shows in the TOC? maybe combined with a little
-bit from the previous section about iterative?* *RR: sect1* There are many
-separate moving parts in a website: the database structure, the visual
-look-and-feel, the user interaction, the URL structure. All these parts are
-related. What needs to be shown in the user interface determines what has to
-be in the database, the look-and-feel depends on the URL structure, the URL
+   A protected part of the website to allow traders to notify the duke's
+   armsmen of their travel schedule (really protected, mind you). This should
+   help in getting maximum efficiency out of the patrols.
+
+   For the PR, information on the duke, his illustrious family line and the
+   castle itself.
+
+   A protected part of the site will include data on the personel of the
+   castle, including the armsmen.
+
+   We'll add these parts one by one to the website, keeping it working the
+   whole time. *RR: condense above list to two sentences*
+
+   Django lends itself to iterative development: use that to your
+   advantage. This is a good way to build any Django website. After you finish
+   this book, you can use this approach when you build your own projects.
+
+
+Iterative development
+=====================
+
+.. TODO: Use "Django lends itself to iterative development: use that to your
+   advantage" as mentioned above.
+
+There are many separate moving parts in a website: the database structure, the
+visual look-and-feel, the user interaction, the URL structure. All these parts
+are related. What needs to be shown in the user interface determines what has
+to be in the database, the look-and-feel depends on the URL structure, the URL
 structure depends on the database structure, and so on.
 
 There are basically two main ways to develop. *Big design up front*, where you
@@ -338,7 +386,9 @@ light. So when you fire, you see a stream of light going exactly where your
 bullets are going. Instant feedback, allowing you to adjust iteratively until
 you hit the target.
 
-*some repetition in this para* In this chapter, we're starting our own tracer
+.. TODO some repetition in this para.
+
+In this chapter, we're starting our own tracer
 bullet development. We'll build a simple working example from start to
 finish. Even though it will be simple, it will use every part of Django, from
 URL handling via views and the admin interface to the model layer. When it's
@@ -346,56 +396,59 @@ done, we'll get feedback and we can aim again with another iteration in the
 next chapter. Throughout this book we'll build out this simple working example
 until we have a completed website.
 
+
 Installing Django
 =================
 
 Next step is to install Django. Whether you use OSX, Linux or Windows; you'll
 find handy instructions on how to install Django here. (If you're already
 familiar with Python and Python packages, you're invited to read the Python
-packaging comments in .)
+packaging comments in :ref:`chapter-packaging`).
 
-What You Need
+
+What you need
 -------------
 
 Here's what you need to set up before you can start trying out Django:
 
 Python
 
-Django is written in Python, so you first need to install Python.
-Fortunately, it is often already available.
+    Django is written in Python, so you first need to install Python.
+    Fortunately, it is often already available.
 
-Regarding Python versions: you need 2.5, 2.6 or 2.7. (Django doesn't work with
-version 3 yet.) If you have a choice of versions, pick 2.7.
+    Regarding Python versions: you need 2.5, 2.6 or 2.7. (Django doesn't work with
+    version 3 yet.) If you have a choice of versions, pick 2.7.
 
-When programming a Django website and when interacting with Python, some
-commands have to be typed in on the *console*. Other familiar terms for the
-console are the terminal and the commandline or DOS prompt.
+    When programming a Django website and when interacting with Python, some
+    commands have to be typed in on the *console*. Other familiar terms for the
+    console are the terminal and the commandline or DOS prompt.
 
 Setuptools
 
-Like many other programming languages, Python comes with its own installer for
-extra Python packages, called *setuptools*. (Setuptools is sometimes called
-distribute: they're the functionally the same.)
+    Like many other programming languages, Python comes with its own installer for
+    extra Python packages, called *setuptools*. (Setuptools is sometimes called
+    distribute: they're the functionally the same.)
 
 Django itself
 
-Setuptools provides the ``easy_install`` command, which you'll use to install
-Django.
+    Setuptools provides the ``easy_install`` command, which you'll use to install
+    Django.
 
-This book assumes Django version 1.4 or higher. Django emphasizes backwards
-compatibility, so a different version will not be a problem.  If you use a
-different version and see a difference between your display and the examples
-in this book, check Django's online documentation which is full of helpful
-notes like "changed in 1.2" and "added in 1.4".
+    This book assumes Django version 1.4 or higher. Django emphasizes backwards
+    compatibility, so a different version will not be a problem.  If you use a
+    different version and see a difference between your display and the examples
+    in this book, check Django's online documentation which is full of helpful
+    notes like "changed in 1.2" and "added in 1.4".
 
-need a segue here
+.. TODO need a segue here
+
 
 OSX
 ---
 
-Python is included with OSX, so you're set. Type ``python`` into your console
-prompt and you'll see the version number, which will be 2.6.4 or 2.7.1 or
-something similar. To exit the Python prompt, press Ctrl-d (or type ``exit``).
+Python is included with OSX, so you're set. Type :command:`python` into your console
+prompt and you'll see the version number, which will be 2.6.4 or 2.7.3 or
+something similar. To exit the Python prompt, press :kbd:`control-d` (or type ``exit``).
 
 Setuptools (and thus the ``easy_install`` command) comes pre-installed on
 OSX. On your console, run the following command: ``sudo easy_install
@@ -407,16 +460,16 @@ Linux
 -----
 
 Almost always, Python is already installed for you. Test it by typing
-``python`` in your console. If not, use your package manager to install it. On
-Debian/Ubuntu, the command is ``sudo apt-get install python``.  You can use
-your graphical package manager, too. Make sure you've got a 2.5/2.6/2.7 Python
-installed.
+:command:`python` in your console. If not, use your package manager to install
+it. On Debian/Ubuntu, the command is :command:`sudo apt-get install python`.
+You can use your graphical package manager, too. Make sure you've got a
+2.6/2.7 Python installed.
 
-Setuptools isn't always installed. Try to run ``easy_install`` on the
+Setuptools isn't always installed. Try to run :command:`easy_install` on the
 console. If it is not available, install it with your package manager.  On
-Debian/Ubuntu the command is ``sudo apt-get install python-setuptools``.
+Debian/Ubuntu the command is :command:`sudo apt-get install python-setuptools`.
 
-Now run ``sudo easy_install Django``. This installs Django globally.
+Now run :command:`sudo easy_install Django`. This installs Django globally.
 
 Windows
 -------
@@ -425,16 +478,16 @@ On Windows, you have to install Python yourself. Go to the `Python download
 page <http://python.org/download/>`_, pick the 2.7 Windows installer, download
 and install it.
 
-In the console, type ``python`` to make sure Python is installed OK.  You'll
-see a version number: 2.7.2 or higher. To exit the Python prompt, press Ctrl-z
-(or type ``exit``).
+In the console, type :command:`python` to make sure Python is installed OK.
+You'll see a version number: 2.7.2 or higher. To exit the Python prompt, press
+:kbd:`control-z` (or type ``exit()``).
 
 For setuptools, download a `Windows installer
 <http://pypi.python.org/pypi/setuptools>`_ that matches your Python version
-(look near the bottom of the page) *what page?* and install it.\ *install
-what? the installer?*
+(look near the bottom of the page) and install it.
 
-Afterwards, go to the console and install Django with ``easy_install Django``.
+Afterwards, go to the console and install Django with :command:`easy_install
+Django`.
 
 Our current installation process installed Django globally. Globally means
 that wherever we open our Python prompt, we'll have Django available. However,
@@ -444,103 +497,119 @@ global Python clean. That's all possible and we will dive into just that in .
 For this and the next few chapters, the quick global install will serve our
 purposes.
 
-Creating Your Django Project
+
+Creating your Django project
 ============================
 
 With Django installed, you can now use it to create your basic project
 structure. Afterwards you must adjust two settings: one for the database and
 one for the list of installed Django applications. Then you can create the
-database and start Django. *what is a project?*
+database and start Django.
 
-Creating the Structure With Startproject
+.. TODO: what is a project?
+
+
+Creating the structure with startproject
 ----------------------------------------
 
-*they didn't install the script - it was part of the install. split up
-sentence into two* When you installed Django, you also installed a
-``django-admin.py`` script, which is how you communicate with Django from the
-console when you're not working inside a project. Type ``django-admin.py`` at
-the console and you'll get a list of available subcommands. The list of
-subcommands is pretty long, but you can always get help on any one of them.
+When you installed Django, you also installed a :command:`django-admin.py`
+script, which is how you communicate with Django from the console when you're
+not working inside a project. Type :command:`django-admin.py` at the console
+and you'll get a list of available subcommands. The list of subcommands is
+pretty long, but you can always get help on any one of them.
 
 To begin, only one of the subcommands is needed: ``startproject``. Let's look
 at the help for startproject. You can get the help in two ways:
-``django-admin.py help startproject`` and ``django-admin.py startproject
---help``:
+:command:`django-admin.py help startproject` and :command:`django-admin.py startproject
+--help`::
 
-::
+    $ django-admin.py startproject --help
+    Usage: django-admin.py startproject [options] [projectname]
 
-            $ django-admin.py startproject --help
-            Usage: django-admin.py startproject [options] [projectname]
+    Creates a Django project directory structure for the given
+    project name in the current directory.
 
-            Creates a Django project directory structure for the given
-            project name in the current directory.
+
+.. sidebar:: Project name restrictions
+
+   Project names have one important restriction: they should be valid Python
+   names because you need to be able to import them. For instance, if you have
+   a name with a dash in it, Python treats it as a minus sign.  So it
+   complains about unknown identifiers when subtracting: ``import
+   project-name.models``.
+
+   Likewise, a dot in a name is not a good idea. ``import
+   project.name.models`` *is* possible, but Python treats those dots as
+   separators. Technically, Python calls ``project.name`` a namespace
+   package. If you come from Plone, a Python :abbr:`CMS (content management
+   system)`, you'll be used to namespace packages. But Django has some
+   restrictions and doesn't really like them. So don't use a dot.
+
+   One character is absolutely forbidden: a space. A space separates words.  A
+   space separates variables. A space separates. ``import project
+   name.models`` gives a syntax error. Using spaces in filenames is second
+   nature to most people, but when programming Django do not use spaces in
+   filenames.
+
+   Underscores are OK. I work on a system called *Lizard* and my packages are
+   called lizard_ui, lizard_map, lizard_security and so on. If your project's
+   name really consists of multiple words or if you want a common prefix:
+   separate the words with underscores.
 
 
 We need to name our project. Since it's a website for the duke's new castle,
-the project name *castle* makes the most sense.\ *how do they name it? show
-the line of code they need to type in*
+the project name *castle* makes the most sense::
 
-Project names have one important restriction: they should be valid Python
-names because you need to be able to import them. For instance, if you have a
-name with a dash in it, Python treats it as a minus sign.  So it complains
-about unknown identifiers when subtracting: ``import project-name.models``.
+    $ django-admin.py startproject castle
 
-Likewise, a dot in a name is not a good idea. ``import project.name.models``
-*is* possible, but Python treats those dots as separators. Technically, Python
-calls ``project.name`` a namespace package. If you come from Plone, a Python
-content management system (CMS), you'll be used to namespace packages. But
-Django has some restrictions and doesn't really like them. So don't use a dot.
+.. _fig-firsttaste-initialdirectorycontents:
 
-One character is absolutely forbidden: a space. A space separates words.  A
-space separates variables. A space separates. ``import project name.models``
-gives a syntax error. Using spaces in filenames is second nature to most
-people, but when programming Django do not use spaces in filenames.
+.. figure:: /images/first_taste/castle_initial_directory_contents.png
+   :width: 100%
 
-Underscores are OK. I work on a system called *Lizard* and my packages are
-called lizard\_ui, lizard\_map, lizard\_security and so on. If your project's
-name really consists of multiple words or if you want a common prefix:
-separate the words with underscores.
+   Initial :command:`django-admin.py startproject` directory contents
 
-No more delays.\ *remove - there hasn't been a delay. show the following on a
-separate line* Call ``django-admin.py startproject castle``. *RR: command on a
-separate line*. The result is anticlimatic, as nothing is printed. So call up
-your explorer/finder/file browser to see the results. See .
 
-Startproject created five files for you:
+The result is anticlimatic, as nothing is printed. So call up your
+explorer/finder/filebrowser to see the results. See
+:ref:`fig-firsttaste-initialdirectorycontents`. Startproject created five
+files for you:
 
-``castle/__init__.py``
+:file:`castle/__init__.py`
 
-A Python requirement. An ``__init__.py`` turns a directory into a Python
-module. So if you want to import from something, that something needs an
-``__init__.py`` in there.\ *what is a pyton module? why would i import
-something?*
+    A Python requirement. An ``__init__.py`` turns a directory into a Python
+    module. So if you want to import from something, that something needs an
+    ``__init__.py`` in there.\ *what is a pyton module? why would i import
+    something?*
 
-``castle/settings.py``
+:file:`castle/settings.py`
 
-The project's Django settings. This is just Python code, so make sure you
-don't make Python syntax errors. We'll look at this file in the next few
-pages.
+    The project's Django settings. This is just Python code, so make sure you
+    don't make Python syntax errors. We'll look at this file in the next few
+    pages.
 
-``castle/urls.py``
+:file:`castle/urls.py`
 
-This file maps incoming URLs to whatever Django itself needs to do. The next
-chapter will explain how it works in detail; later on in this chapter you'll
-see enough to get Django running.
+    This file maps incoming URLs to whatever Django itself needs to do. The next
+    chapter will explain how it works in detail; later on in this chapter you'll
+    see enough to get Django running.
 
-``castle/wsgi.py``
+:file:`castle/wsgi.py`
 
-WSGI (Web Service Gateway Interface) is Python's standard mechanism to run
-Python code on a web server. WSGI is lovingly pronounced as "wiskey", by the
-way. (We ought to mention that to the duke someday!) We'll look at web server
-integration, and WSGI, in a later chapter.
+    WSGI (Web Service Gateway Interface) is Python's standard mechanism to run
+    Python code on a web server. WSGI is lovingly pronounced as "wiskey", by the
+    way. (We ought to mention that to the duke someday!) We'll look at web server
+    integration, and WSGI, in a later chapter.
 
-``manage.py``
+:file:`manage.py`
 
-When you create a project, Django creates a copy of ``django-admin.py`` named
-``manage.py``. You'll use ``manage.py`` to communicate with Django from the
-console when you're working inside a project. The only difference from
-``django-admin.py`` is that your project's Django's main settings module is
-configured by default.
+    When you create a project, Django creates a copy of ``django-admin.py`` named
+    ``manage.py``. You'll use ``manage.py`` to communicate with Django from the
+    console when you're working inside a project. The only difference from
+    ``django-admin.py`` is that your project's Django's main settings module is
+    configured by default.
+
+
 
 We'll use this command throughout the book as this is our way of telling
 Django to do things for us: starting the build-in web server, setting up the
@@ -573,7 +642,7 @@ add the ``os.environ.setdefault`` line to your ``manage.py``.
 You need to fill in *configure* two things in the generated
 ``castle/settings.py``: the database settings and the installed applications.
 
-Configuring the Database Settings
+Configuring the database settings
 ---------------------------------
 
 Django stores its data in an SQL database, so you need to configure one.
@@ -596,7 +665,7 @@ settings databases*. Almost always, `Django's own documentation
 <https://docs.djangoproject.com/en/dev/ref/settings/#databases>`_ comes out on
 top, and there you'll find a full explanation of all settings.
 
-Configuring the Installed Django Applications
+Configuring the installed Django applications
 ---------------------------------------------
 
 An *application* is Django's term for an extention to core Django.  Django
@@ -625,7 +694,7 @@ at the end of a line here, Python concatenates that line's string with the one
 on the next line. Django then complains that it cannot find the
 ``django.contrib.sessionsdjango.contrib.sites`` application, for instance.
 
-Creating the Database
+Creating the database
 ---------------------
 
 The next task is to tell Django to set up the database tables. You need *to
@@ -696,15 +765,16 @@ http://localhost:8000/. You ought to see an "It worked" web page like .
 
 IMG HERE fileref="images/first\_taste/it\_worked.png"
 
-*Reinout: ctrl-c for stopping, restart normally works* Django will keep
-running until you press Ctrl-c. Often you do not need to do this yourself,\
-*do what yourself? press ctl-c?* however, because Django detects when you make
+*Reinout: ctrl-c for stopping, restart normally works*
+
+Django will keep running until you press :kbd:`control-c`. Often you do not
+need to do this yourself, however, because Django detects when you make
 changes to your project and restarts itself. This is very handy during
 development. However in some cases, it cannot reliably restart, for instance
 when you make changes to the settings file. If you see that Django fails to
 restart, you can stop and restart it yourself.
 
-Working With Databases
+Working with databases
 ======================
 
 Django gives us a handy build-in admin interface for our database data.  It's
@@ -714,7 +784,7 @@ with it and then add a simple database table (a *model*) so you can see how
 easy it is to use.\ *make this a better intro to the whole section. what is
 the Big Point of this section?*
 
-Trying Out the Admin Interface
+Trying out the admin interface
 ------------------------------
 
 To see the admin interface, Django needs to be told which URL to use to
@@ -751,7 +821,7 @@ ten minutes to add a couple of users, delete some, edit them, and view them,
 to acquaint yourself with the admin interface.  (Just don't delete your own
 user account.)
 
-Creating a Model
+Creating a model
 ----------------
 
 In we'll take a deep look at Django's database models. In this chapter we only
@@ -787,7 +857,7 @@ modify our database. So call ``manage.py syncdb`` and you'll see the message
 this gets you even more acquainted with the admin interface. (And it gives you
 some sample data to work with in the next section.)
 
-Adding a Web Page: View Plus Template
+Adding a web page: view plus template
 =====================================
 
 Now that we have looked at *created?* Django's database layer we can switch
@@ -795,7 +865,7 @@ our attention to the web pages. We'll create a simple homepage for the castle
 first. After that we'll integrate everything by using database content in a
 second web page.
 
-Simple HTML-only Template
+Simple HTML-only template
 -------------------------
 
 A web page in Django consists of two parts: some Python code (the view) and an
@@ -822,7 +892,7 @@ easier than typing a line from memory.\ *huh? what's going on?*
 Now visit http://localhost:8000 in your browser. You should see your homepage
 (see ).
 
-Coupling Our Model With a View Plus Template
+Coupling our model with a view plus template
 --------------------------------------------
 
 We have templates and views on the front end; we have models on the back
@@ -888,7 +958,7 @@ nothing we want to show to his lordship the duke yet. In the next chapter
 we'll dive in deeper and learn the most common template techniques. And we'll
 learn all we need to know about URLs.
 
-What We Learned
+What we learned
 ===============
 
 Success: we got a simple website running with Django. We learned how to
